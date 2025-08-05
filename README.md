@@ -74,20 +74,4 @@ This project is for educational purposes only and may not detect all phishing at
 ### 👨‍💻 Author
 @rahulgit64
 
-Feel free to edit and add more based on your project.
-
-### 📌 How to Add This in Your Project
-In your project folder, create a file:
-
-touch README.md
-(Or just right-click → New File → README.md in VS Code)
-
-Save it.
-
-Add & push:
-
-git add README.md
-git commit -m "Add README"
-git push
-
 
