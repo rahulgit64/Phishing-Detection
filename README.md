@@ -11,6 +11,7 @@ This project is a web-based phishing URL detection system that uses a trained ma
 
 ## 📁 Project Structure
 
+
 phishing_detection_updated/
 ├── backend/
 │   ├── __pycache__
@@ -47,35 +48,35 @@ phishing_detection_updated/
    ```bash
    git clone https://github.com/rahulgit64/Phishing-Detection.git
    cd Phishing-Detection
-##Install requirements:
+## Install requirements:
 
    pip install -r requirements.txt
 
-##Run the app:
+## Run the app:
 
     python app.py
     
-##📊 Dataset
+## 📊 Dataset
 
-  ###We used a labeled dataset with URL-based features such as:
+  ### We used a labeled dataset with URL-based features such as:
      Number of dots
      URL length
      Use of @ symbol
      Presence of IP address
      etc
 
-###🧠 Model
+### 🧠 Model
 The machine learning model was trained using DecisionTreeClassifier from Scikit-learn.
 
-###🔒 Disclaimer
+### 🔒 Disclaimer
 This project is for educational purposes only and may not detect all phishing attempts. Use responsibly.
 
-###👨‍💻 Author
+### 👨‍💻 Author
 @rahulgit64
 
 Feel free to edit and add more based on your project.
 
-###📌 How to Add This in Your Project
+### 📌 How to Add This in Your Project
 In your project folder, create a file:
 
 touch README.md
