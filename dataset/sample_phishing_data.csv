@@ -1,0 +1,11 @@
+NumDots,UrlLength,AtSymbol,NumDash,NumPercent,NumQueryComponents,IpAddress,HttpsInHostname,PathLevel,PathLength,NumNumericChars,KeywordFlag,Phising,Url
+1,35,0,2,0,0,0,0,1,6,0,1,1,https://secure-login-bank.com/login
+2,25,0,0,0,0,0,0,0,0,0,0,0,https://www.wikipedia.org
+2,31,1,0,0,0,0,0,0,0,0,1,1,http://paypal.com@scamverify.ru
+2,22,0,0,0,0,0,0,0,0,0,0,0,https://www.google.com
+1,29,0,2,0,0,0,0,0,0,0,1,1,https://login-update-free.com
+3,24,0,0,0,0,1,0,1,6,8,0,0,http://192.168.0.1/login
+1,18,0,0,0,0,0,0,0,0,0,0,0,https://amazon.com
+1,28,0,2,0,0,0,0,0,0,0,1,1,https://free-bonus-gifts.net
+1,25,0,0,0,0,0,0,0,0,0,0,0,https://stackoverflow.com
+1,35,0,2,0,0,0,0,0,0,0,1,1,https://verify-account-security.com

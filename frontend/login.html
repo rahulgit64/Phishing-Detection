@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="signup.css"> <!-- Reusing same CSS -->
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login</h2>
+    
+    <!-- ✅ Added form action and method -->
+    <form action="/login" method="POST">
+      
+      <!-- ✅ Added 'name' attributes -->
+      <div class="form-row">
+        <input type="text" name="username" placeholder="Username or Email" required>
+      </div>
+      
+      <div class="form-row">
+        <input type="password" name="password" placeholder="Password" required>
+      </div>
+      
+      <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+  </div>
+</body>
+</html>

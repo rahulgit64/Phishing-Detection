@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhishingCheck by Rahul & Shafi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo-area">
+        <div class="logo">PC</div>
+        <div class="brand-text">
+          <span class="brand-name">PhishingCheck</span>
+          <span class="brand-sub">by Rahul & Shafi</span>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <!-- ✅ Show logged-in email -->
+        <div id="user-info" class="user-info" style="margin-right: 1rem; font-weight: bold;"></div>
+        <!-- ✅ Login/Signup buttons -->
+        <button class="btn-outline" onclick="window.location.href='login.html'">Login</button>
+        <button class="btn-outline" onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h1>PhishingCheck Detects and Monitors Phishing and Scam Sites</h1>
+      <p>With PhishingCheck, you can scan suspicious URLs and monitor for typosquats and lookalike variants of a domain.</p>
+
+      <div class="url-form">
+        <input type="text" id="urlInput" placeholder="Enter a URL (e.g. https://example.com)" />
+        <button onclick="checkURL()">Check</button>
+      </div>
+      <div id="result" class="result"></div>
+    </div>
+  </main>
+
+  <section class="tips">
+    <div class="tip-box">
+      <h2>🛡️ How to Protect Yourself from Phishing</h2>
+      <ul>
+        <li>Always verify the domain before entering your credentials</li>
+        <li>Do not click unknown or shortened URLs</li>
+        <li>Enable two-factor authentication on all accounts</li>
+        <li>Use a reputable antivirus and browser protection, too!</li>
+        <li>Watch for grammar/spelling mistakes in emails & websites</li>
+      </ul>
+    </div>
+    <div class="tip-box">
+      <h2>🚨 What To Do If You're a Victim of Phishing</h2>
+      <ul>
+        <li>Immediately change your password(s)</li>
+        <li>Enable two-factor authentication if not already</li>
+        <li>Notify your bank or affected service provider</li>
+        <li>Report phishing to local cybercrime units</li>
+        <li>Scan your computer for malware</li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    // ✅ Fetch logged-in user's email from Flask
+    fetch('/user')
+      .then(res => res.json())
+      .then(data => {
+        if (data.email) {
+          const userInfo = document.getElementById('user-info');
+          userInfo.textContent = `👤 ${data.email}`;
+        }
+      });
+
+    // ✅ Check phishing status
+    async function checkURL() {
+      const url = document.getElementById("urlInput").value;
+      const resText = document.getElementById("result");
+
+      resText.innerText = "Checking...";
+
+      try {
+        const res = await fetch("http://localhost:5000/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: url })
+        });
+
+        const data = await res.json();
+        resText.innerText = data.phishing
+          ? "🚨 This is a phishing URL!"
+          : "✅ This is a safe URL.";
+      } catch (err) {
+        resText.innerText = "❌ Error checking URL.";
+        console.error(err);
+      }
+    }
+  </script>
+</body>
+
+</html>
